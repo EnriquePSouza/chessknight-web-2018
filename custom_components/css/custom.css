@@ -1,0 +1,107 @@
+/* All divTable Classes are for the Div Table display organization in html. - Begin */
+.divTable {
+	display: table;
+}
+
+.divTableRow {
+	display: table-row;
+}
+
+.divTableHeading {
+	display: table-header-group;
+}
+
+.divTableCell, .divTableHead {
+	display: table-cell;
+}
+
+.divTableHeading {
+	display: table-header-group;
+}
+
+.divTableFoot {
+	display: table-footer-group;
+}
+
+.divTableBody {
+	display: table-row-group;
+}
+/* All divTable Classes are for the Div Table display organization in html. - End */
+
+/* Class to the initial dimension of the Chesboard */
+#chessboard {
+	width: 640px;
+	margin: 40px auto 0 auto;
+	border: 2px solid #181818;
+}
+/* Rule to color the Chessboard - Begin */
+#chessboard div.divTableBody div:nth-child(2n) div:nth-child(2n+1) {
+	background-color: #f0d9b5;
+	color: #b58863;
+}
+
+#chessboard div.divTableBody div:nth-child(2n+1) div:nth-child(2n) {
+	background-color: #f0d9b5;
+	color: #b58863;
+}
+
+#chessboard div.divTableBody div:nth-child(2n) div:nth-child(2n) {
+	background-color: #b58863;
+	color: #f0d9b5;
+}
+
+#chessboard div.divTableBody div:nth-child(2n+1) div:nth-child(2n+1) {
+	background-color: #b58863;
+	color: #f0d9b5;
+}
+/* Rule to color the Chessboard - End */
+
+/* Class to avoid resizing of the Chessboard squares */
+#chessboard div.divTableBody div div {
+	max-height: 80px;
+	max-width: 80px;
+	height: 80px;
+	width: 80px;
+	text-align: start;
+	vertical-align: bottom;
+	font-weight: bold;
+}
+
+/* Class to add the Knight Piece image to the square */
+.imgKnight {
+	background-image: url("../img/bN.png");
+}
+
+/* Class to remove opacity from the table and help the highlights visualization */
+#chessboard div.divTableBody div div.divTableCell.opaque {
+	opacity: 0.45;
+}
+
+/* Rule to color the Chessboard HighLights off the Turn One */
+#chessboard div.divTableBody div div.divTableCell.highlightTurnOne {
+	font-size: 22px;
+	opacity: 0.7;
+}
+
+/* Rule to color the Chessboard HighLights off the Turn Two - Begin */
+#chessboard div.divTableBody div div.divTableCell.highlightTurnTwo {
+	color: #000000;
+	font-size: 22px;
+}
+
+#chessboard div.divTableBody div:nth-child(2n) div:nth-child(2n+1).highlightTurnTwo {
+	box-shadow: inset 0 0 6px 6px rgba(144,108,79, 0.8);
+}
+
+#chessboard div.divTableBody div:nth-child(2n+1) div:nth-child(2n).highlightTurnTwo {
+	box-shadow: inset 0 0 6px 6px rgba(144,108,79, 0.8);
+}
+
+#chessboard div.divTableBody div:nth-child(2n) div:nth-child(2n).highlightTurnTwo {
+	box-shadow: inset 0 0 6px 6px rgba(241,220,188, 0.8);
+}
+
+#chessboard div.divTableBody div:nth-child(2n+1) div:nth-child(2n+1).highlightTurnTwo {
+	box-shadow: inset 0 0 6px 6px rgba(241,220,188, 0.8);
+}
+/* Rule to color the Chessboard HighLights off the Turn Two - End */

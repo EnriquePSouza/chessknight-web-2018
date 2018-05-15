@@ -1,0 +1,19 @@
+{
+  "name": "chessknight",
+  "version": "1.0.0",
+  "description": "Find all move possibilities within two turns to a knight located on a coordinate chosen by the user.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnriquePSouza/chessknight-web-2018.git"
+  },
+  "author": "Enrique Souza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EnriquePSouza/chessknight-web-2018/issues"
+  },
+  "homepage": "https://github.com/EnriquePSouza/chessknight-web-2018#readme"
+}

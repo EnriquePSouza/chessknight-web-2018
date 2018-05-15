@@ -77,10 +77,11 @@
 	opacity: 0.45;
 }
 
-/* Rule to color the Chessboard HighLights off the Turn One */
+/* Class to color the Chessboard HighLights off the Turn One */
 #chessboard div.divTableBody div div.divTableCell.highlightTurnOne {
+	color: #000000;
 	font-size: 22px;
-	opacity: 0.7;
+	opacity: 0.6;
 }
 
 /* Rule to color the Chessboard HighLights off the Turn Two - Begin */

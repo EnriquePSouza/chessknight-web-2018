@@ -47,6 +47,61 @@ module chessknight {
 
             return matrix;
         }
+
+        // (highlightsAndKnightOnClick Callback method)
+        // Method to Highlight the squares returned from the API. 
+        highlightSquares(squareId: string, squaresArray: Chessboard): void {
+            
+            // Variables to locate and receive infos from html elements in the index.html.
+            var divs, divItem;
+
+            // Remove the Knight Piece from the old square and add to the new square after the click.
+            if (this.divId != '') {
+                divItem = angular.element(document.querySelector("div#" + this.divId));
+                divItem.removeClass('imgKnight');
+                divItem = angular.element(document.querySelector("div#" + squareId));
+                divItem.addClass('imgKnight');
+                this.divId = squareId;
+            } else {
+                divItem = angular.element(document.querySelector("div#" + squareId));
+                divItem.addClass('imgKnight');
+                this.divId = squareId;
+            }
+
+            // Low the Table opacity to help highlights visualization.
+            divs = angular.element(document.querySelectorAll("div.divTableCell"));
+
+            // Back opacity to normal before insert the highlights.
+            divs.removeClass('opaque');
+
+            // Remove highlighs from old Knight piece and prepare to receive new highlights.
+            divs.removeClass('highlightTurnOne');
+            divs.removeClass('highlightTurnTwo');
+            divs.addClass('opaque');
+
+            // Insert the highlights in the squares returned from the Matrix API.
+            for (let i = 0; i < squaresArray[0].length; i++) {
+                divItem = angular.element(document.querySelector("div#" + squaresArray[0][i]));
+                divItem.removeClass('opaque');
+                divItem.addClass('highlightTurnOne');
+            }
+
+            for (let i = 0; i < squaresArray[1].length; i++) {
+                divItem = angular.element(document.querySelector("div#" + squaresArray[1][i]));
+                divItem.removeClass('opaque');
+                divItem.addClass('highlightTurnTwo');
+            }
+        }
+
+        // Method to call the Matrix API.
+        highlightsAndKnightOnClick(squareId: string): void {
+
+            this.http.get('http://127.0.0.1:5000/chess/' + squareId)
+                .then((response) => {
+                    // Callback method(executes after the api return a value).
+                    this.highlightSquares(squareId, response.data)
+                });
+        }
     }
 
     // Controller class definition in module and controller name to utilizate in index.html.

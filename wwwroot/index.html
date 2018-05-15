@@ -14,6 +14,21 @@
 </head>
 
 <body>
+    <!-- Controller declaration -->
+    <div ng-controller="chessCtrl as vm">
+        <!-- Div to create the matrix inside it -->
+        <div id="chessboard" class="divTable">
+            <!-- Div to organize the rows and squares -->
+            <div class="divTableBody">
+                <!-- This Divs criate with the controller matrix and ng-repeat the Chesboard in html.  -->
+                <div class="divTableRow" ng-repeat="row in vm.chessboard track by $index">
+                    <div class="divTableCell" id="{{square}}" ng-repeat="square in row track by $index" ng-click="vm.highlightsAndKnightOnClick(square)">
+                        {{square}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript files reference - angular, angular route, jquery and typescript transpilation  -->
     <script src="assets/js/scripts-1.0.0.min.js"></script>

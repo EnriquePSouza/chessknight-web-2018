@@ -22,7 +22,7 @@
             <div class="divTableBody">
                 <!-- This Divs criate with the controller matrix and ng-repeat the Chesboard in html.  -->
                 <div class="divTableRow" ng-repeat="row in vm.chessboard track by $index">
-                    <div class="divTableCell" id="{{square}}" ng-repeat="square in row track by $index" ng-click="vm.highlightsAndKnightOnClick(square)">
+                    <div class="divTableCell" id="{{square}}" ng-repeat="square in row track by $index" ng-click="vm.highlightsAndKnightOnSquareClick(square)">
                         {{square}}
                     </div>
                 </div>
@@ -30,9 +30,9 @@
         </div>
         <div id="divActions">
             <div id="divActionElements">
-                <button id="btnHighlights" class="button">Highlights</button>
+                <button id="btnHighlights" class="button" ng-click="vm.highlightsAndKnightOnButtonClick()">Highlights</button>
                 <div id="divCbHighlights">
-                    <input id="cbHighlights" name="cbHighlights" type="checkbox">
+                    <input id="cbHighlights" name="cbHighlights" type="checkbox" ng-model="vm.checked">
                     <label for="cbHighlights">Highlights on Square Click.</label>
                 </div>
 

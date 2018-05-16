@@ -65,10 +65,10 @@
 /* Class to avoid resizing of the Chessboard squares */
 
 #chessboard div.divTableBody div div {
-	max-height: 60px;
-	max-width: 60px;
-	height: 60px;
-	width: 60px;
+	max-height: 80px;
+	max-width: 80px;
+	height: 80px;
+	width: 80px;
 	text-align: start;
 	vertical-align: bottom;
 	font-weight: bold;
@@ -147,14 +147,14 @@
 #divActionElements {
 	display: flex;
 	justify-content: center;
-	width: 340;
+	width: 480px;
 	margin: auto;
 }
 
 /* Classes for buttons and checkboxes - Begin */
 
 #btnHighlights {
-	margin: auto;
+	margin: 0 0 0 10;
 }
 
 #divCbHighlights {
@@ -164,6 +164,7 @@
 label {
 	font-weight: bold;
 	color: rgba(144, 108, 79, 0.8);
+	font-size: 14px;
 }
 
 .button {
@@ -189,6 +190,11 @@ label {
 	color: rgba(144, 108, 79, 0.8);
 	background-color: rgba(241, 220, 188, 0.8);
 	box-shadow: 0 5px #666;
+}
+
+select {
+	font-weight: bold;
+	color: rgba(144, 108, 79, 0.8);
 }
 
 /* Classes for buttons and checkboxes - End */

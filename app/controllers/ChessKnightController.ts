@@ -18,6 +18,12 @@ module chessknight {
         private checked: boolean;
 
         // Property to receive and set the Chessboard Algebraic Ids in the squares.
+        private sizes: Array<any>;
+
+        private length: Array<any>;
+
+        private width: Array<any>;
+
         private chessboard: Chessboard;
 
         // Initialize controller properties values and Execute initialization 
@@ -27,28 +33,65 @@ module chessknight {
             this.knightId = '';
             this.oldKnightId = '';
             this.checked = false;
-            this.chessboard = this.matrix();
+            this.sizes = new Array<any>();
+            this.makeSizes();
+            this.length = this.sizes[6];
+            this.width = this.sizes[6];
+            this.makeMap();
+        }
+
+        // Insert Initial Sizes.
+        makeSizes() {
+            for (var i = 0; i < 7; i++) {
+                this.sizes[i] = i + 2;
+            }
+        }
+
+        // Clean Chessboard
+        clean() {
+            // Variable to locate and receive infos from html element in the index.html.
+            var divs;
+
+            // Low the Table opacity to help highlights visualization.
+            divs = angular.element(document.querySelectorAll("div.divTableCell"));
+
+            // Back opacity to normal before insert the highlights.
+            divs.removeClass('opaque');
+
+            // Remove highlighs from old Knight piece.
+            divs.removeClass('highlightTurnOne');
+            divs.removeClass('highlightTurnTwo');
+            divs.removeClass('imgKnight');
+        }
+
+        // Make the Chessboard on html.
+        makeMap() {
+            this.chessboard = this.matrix(this.length, this.width);
+            this.knightId = "";
+            this.oldKnightId = "";
+            this.clean();
         }
 
         // Method to generate the Chessboard for the index.html.
-        matrix(): Chessboard {
+        matrix(rows, cols): Chessboard {
+
             var matrix = new Chessboard;
 
             var colsArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
             // Creates all lines:
-            for (var i = 0; i < colsArray.length; i++) {
+            for (var i = 0; i < rows; i++) {
 
                 // Creates an empty line
                 matrix[i] = [];
 
                 // Adds cols to the empty line:
-                matrix[i] = new Array(colsArray.length);
+                matrix[i] = new Array(cols);
 
-                for (var j = 0; j < colsArray.length; j++) {
+                for (var j = 0; j < cols; j++) {
 
                     // Initializes:
-                    matrix[i][j] = colsArray[j] + (8 - i);
+                    matrix[i][j] = colsArray[j] + (rows - i);
                 }
             }
 
@@ -87,18 +130,11 @@ module chessknight {
         // Method to move the Knight piece.
         knightMovement(squareId: string): void {
 
-            // Variables to locate and receive infos from html elements in the index.html.
-            var divs, divItem;
+            // Variable to locate and receive infos from html elements in the index.html.
+            var divItem;
 
-            // Low the Table opacity to help highlights visualization.
-            divs = angular.element(document.querySelectorAll("div.divTableCell"));
-
-            // Back opacity to normal before insert the highlights.
-            divs.removeClass('opaque');
-
-            // Remove highlighs from old Knight piece.
-            divs.removeClass('highlightTurnOne');
-            divs.removeClass('highlightTurnTwo');
+            // Clean the Chessboard.
+            this.clean();
 
             // Remove the Knight Piece from the old square and add to the new square after the click.
             if (this.oldKnightId != '') {

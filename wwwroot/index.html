@@ -28,14 +28,26 @@
                 </div>
             </div>
         </div>
+        <!-- Div for elements to execute actions on html -->
         <div id="divActions">
+            <!-- Div to organize the action elements  -->
             <div id="divActionElements">
+                <div>
+                    <!-- Selects for making the Chessboard dynamic -->
+                    <label for="length">Length</label>
+                    <select name="length" ng-model="vm.length" ng-options="length for length in vm.sizes" ng-change="vm.makeMap()">
+                    </select>
+                    <label for="width">Width</label>
+                    <select name="width" ng-model="vm.width" ng-options="width for width in vm.sizes" ng-change="vm.makeMap()">
+                    </select>
+                </div>
+                <!-- Button to send the API requisition -->
                 <button id="btnHighlights" class="button" ng-click="vm.highlightsAndKnightOnButtonClick()">Highlights</button>
+                <!-- Checkbox to validate the API requisition method -->
                 <div id="divCbHighlights">
                     <input id="cbHighlights" name="cbHighlights" type="checkbox" ng-model="vm.checked">
                     <label for="cbHighlights">Highlights on Square Click.</label>
                 </div>
-
             </div>
         </div>
     </div>

@@ -23,8 +23,7 @@ var paths = {
     scripts: {
         src: [
             'node_modules/angular/angular.js',
-            'node_modules/angular-route/angular-route.js',
-            'node_modules/jquery/dist/jquery.js'
+            'node_modules/angular-route/angular-route.js'
         ],
         dest: 'wwwroot/assets/js/',
         file: 'scripts-1.0.0.min.js'

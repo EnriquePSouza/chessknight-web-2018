@@ -29,3 +29,22 @@ Obs.: You need the 'chessknight-api' in running state to use all functions prese
 use the following link to download it:
 
 https://github.com/EnriquePSouza/chessknight-api-2018
+
+### Tests
+To execute the tests you need to install the protractor with this following command:
+```
+npm install -g protractor
+```
+And execute the webdriver-manager,before start, update it:
+```
+webdriver-manager update
+webdriver-manager start
+```
+Leave this server running throughout the test process.
+
+Now execute the 'chessknight-web-2018' and 'chessknight-api-2018' 
+access the tests folder in the Chessknight Web aplication root with a command interface 
+and run the following command: 
+```
+protractor conf.js
+```

@@ -55,7 +55,7 @@ module chessknight {
             return matrix;
         }
 
-        // (highlightsAndKnightOnClick Callback method)
+        // (getData Callback method)
         // Method to Highlight the squares returned from the API. 
         highlightSquares(squareId: string, squaresArray: Chessboard): void {
 
@@ -119,7 +119,7 @@ module chessknight {
             this.http.get('http://127.0.0.1:5000/chess/' + squareId)
                 .then((response) => {
 
-                    // Callback method(executes after the api return a value).
+                    // Callback method(executes after the API return a value).
                     this.highlightSquares(squareId, response.data)
                 });
         }
@@ -128,7 +128,7 @@ module chessknight {
         highlightsAndKnightOnSquareClick(squareId: string): void {
 
             // Insert inside the controller the last 
-            // Knight Id selected on the Chessboard.
+            // Knight id selected on the Chessboard.
             this.knightId = squareId;
 
             // Method to move the Knight piece.

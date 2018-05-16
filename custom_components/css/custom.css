@@ -120,11 +120,15 @@
 
 /* Rule to color the Chessboard HighLights off the Turn Two - End */
 
+/* Class to change de color of the div text when the others are highlighting for Turn Two */
+
 #chessboard div.divTableBody div div.divTableCell.highlightTurnTwo.imgKnight {
 	background-image: url("../img/bN.png");
 	background-size: 100% 100%;
 	color: #f8fc04;
 }
+
+/* Class to change de color of the div text when the others are highlighting for Turn One */
 
 #chessboard div.divTableBody div div.divTableCell.highlightTurnOne.imgKnight {
 	background-image: url("../img/bN.png");
@@ -132,9 +136,13 @@
 	color: #f8fc04;
 }
 
+/* Class to insert margin in the actions div */
+
 #divActions {
 	margin: 20px auto 0 auto;
 }
+
+/* Class to control div elements size */
 
 #divActionElements {
 	display: flex;
@@ -142,6 +150,8 @@
 	width: 340;
 	margin: auto;
 }
+
+/* Classes for buttons and checkboxes - Begin */
 
 #btnHighlights {
 	margin: auto;
@@ -179,5 +189,6 @@ label {
 	color: rgba(144, 108, 79, 0.8);
 	background-color: rgba(241, 220, 188, 0.8);
 	box-shadow: 0 5px #666;
-	transform: translateY(4px);
 }
+
+/* Classes for buttons and checkboxes - End */
